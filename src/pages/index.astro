@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MiniMovieCard from "../components/MiniMovieCard";
+import PopularMovies from "../components/movies/PopularMovies.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -8,7 +8,7 @@ import MiniMovieCard from "../components/MiniMovieCard";
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
   </main>
   <section>
-    <MiniMovieCard title="Some Movie" client:load />
+    <PopularMovies />
   </section>
 </Layout>
 
