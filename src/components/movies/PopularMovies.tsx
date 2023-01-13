@@ -9,8 +9,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export default function PopularMovies(props: { results: ResultPM[] }) {
+  let swiperRef: any;
+
   return (
-    <>
+    <div class="swipper-wrapper">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
@@ -18,20 +20,21 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
         navigation
         pagination={{ clickable: true }}
         loop={true}
-        autoplay={{
-          delay: 3000,
-        }}
         onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSwiper={(swiper) => (swiperRef = swiper)}
       >
         <For each={props.results}>
           {(movie, i) => (
             <SwiperSlide>
-              <Card title={movie.title} backdrop={movie.backdrop_path} />
+              <Card
+                title={movie.title}
+                backdrop={movie.backdrop_path}
+                overview={movie.overview}
+              />
             </SwiperSlide>
           )}
         </For>
       </Swiper>
-    </>
+    </div>
   );
 }
