@@ -27,7 +27,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
         <For each={props.results}>
           {(movie, i) => (
             <SwiperSlide>
-              <Card title={movie.title} />
+              <Card title={movie.title} backdrop={movie.backdrop_path} />
             </SwiperSlide>
           )}
         </For>
