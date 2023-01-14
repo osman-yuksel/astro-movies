@@ -6,7 +6,7 @@ export default function Card(props: {
   return (
     <div class="flex w-full items-center text-white">
       <div class="ml-4">
-        <h3 class="w-64 text-xl mb-2">{props.title}</h3>
+        <h3 class="mb-2 w-64 text-xl">{props.title}</h3>
         <p>{props.overview}</p>
       </div>
       <div>
