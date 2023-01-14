@@ -1,5 +1,5 @@
 import { For } from "solid-js";
-import Card from "./MiniMovieCard";
+import Card from "./BigMovieCard";
 import type { ResultPM } from "./types";
 
 import { Swiper, SwiperSlide } from "swiper/solid";
