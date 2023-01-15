@@ -17,7 +17,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
 
   const ProgressHandler = () => {
     setProgress(false);
-    setTimeout(() => setProgress(true), 0);
+    setTimeout(() => setProgress(true), 10);
   };
 
   return (
