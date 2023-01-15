@@ -18,7 +18,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 3000 }}
+        
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => (swiperRef = swiper)}
       >
