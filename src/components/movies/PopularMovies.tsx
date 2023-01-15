@@ -10,10 +10,10 @@ import "swiper/css/navigation";
 
 export default function PopularMovies(props: { results: ResultPM[] }) {
   let swiperRef: any;
-  const delay = 5000;
+  const delay = 10000;
   const [progress, setProgress] = createSignal(false);
   const twclass = () =>
-    progress() ? `w-full duration-[${delay.toString()}ms]` : `w-0`;
+    progress() ? `w-full duration-[10000ms]` : `w-0`;
 
   const ProgressHandler = () => {
     setProgress(false);
