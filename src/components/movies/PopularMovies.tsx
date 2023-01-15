@@ -29,6 +29,8 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
                 title={movie.title}
                 backdrop={movie.backdrop_path}
                 overview={movie.overview}
+                rd={movie.release_date}
+                rating={movie.vote_average}
               />
             </SwiperSlide>
           )}

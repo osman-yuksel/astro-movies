@@ -2,12 +2,18 @@ export default function Card(props: {
   title: string;
   backdrop: string;
   overview: string;
+  rd: string;
+  rating: number;
 }) {
   return (
     <div class="relative flex h-[45rem] w-full items-center text-white">
       <div class="z-10 ml-14 flex h-full w-4/12 items-center">
         <div>
-          <h3 class="mb-14 w-full text-5xl">{props.title}</h3>
+          <h1 class="mb-4 w-full text-5xl">{props.title}</h1>
+          <div class="flex flex-row text-xl mb-4">
+            <h3 class="mr-4">{props.rd.slice(0, 4)}</h3>
+            <h3>{props.rating}</h3>
+          </div>
           <p class="w-full">{props.overview}</p>
         </div>
       </div>
