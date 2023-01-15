@@ -11,5 +11,4 @@ const response = await fetch(
 const data = (await response.json()) as PM;
 ---
 
-<h2 class="text-center">Popular Movies</h2>
 <PopularMovies results={data.results} client:only />
