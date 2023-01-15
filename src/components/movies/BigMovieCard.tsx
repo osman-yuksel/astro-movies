@@ -10,9 +10,29 @@ export default function Card(props: {
       <div class="z-10 ml-14 flex h-full w-4/12 items-center">
         <div>
           <h1 class="mb-4 w-full text-5xl">{props.title}</h1>
-          <div class="mb-4 flex flex-row text-xl">
-            <h3 class="mr-4">{props.rd.slice(0, 4)}</h3>
-            <h3>{props.rating}</h3>
+          <div class="mb-4 flex h-12 flex-row items-center text-xl">
+            <div class="relative flex h-12 w-12 items-center justify-center">
+              <h3 class="absolute">{props.rating}</h3>
+              <svg class="transition-all" viewBox="0 0 36 36">
+                <path
+                  d="M18 2.0845 
+                    a 15.9155 15.9155 0 0 1 0 31.831 
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke={
+                    props.rating > 7
+                      ? "#39fc03"
+                      : props.rating > 4
+                      ? "#9a3412"
+                      : "#fc0303"
+                  }
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-dasharray={`${props.rating * 10}, 100`}
+                />
+              </svg>
+            </div>
+            <h3 class="ml-4">{props.rd.slice(0, 4)}</h3>
           </div>
           <p class="w-full">{props.overview}</p>
         </div>
