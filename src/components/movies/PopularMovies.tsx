@@ -1,6 +1,6 @@
 import { For, createSignal } from "solid-js";
 import Card from "./BigMovieCard";
-import type { ResultPM } from "./types";
+import type { ResultPM } from "../../movie";
 
 import { Swiper, SwiperSlide } from "swiper/solid";
 import { Autoplay } from "swiper";
