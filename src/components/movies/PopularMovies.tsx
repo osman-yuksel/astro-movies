@@ -10,10 +10,11 @@ import "swiper/css/navigation";
 
 export default function PopularMovies(props: { results: ResultPM[] }) {
   let swiperRef: any;
+
   const delay = 10000;
   const [progress, setProgress] = createSignal(false);
-  const twclass = () =>
-    progress() ? `w-full duration-[10000ms]` : `w-0`;
+
+  const twclass = () => (progress() ? `w-full duration-[10000ms]` : `w-0`);
 
   const ProgressHandler = () => {
     setProgress(false);
@@ -21,18 +22,13 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
   };
 
   return (
-    <div
-      class="swipper-wrapper relative"
-      onMouseLeave={() => {
-        swiperRef.autoplay.start();
-      }}
-    >
+    <div class="swipper-wrapper relative">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: delay }}
+        autoplay={{ delay: delay, disableOnInteraction: false }}
         onSlideChange={() => {
           console.log("slide change");
           ProgressHandler();
