@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         Quicksand: ["Quicksand"],
       },
+      backgroundImage: {
+        wtbradiant: ["linear-gradient(to right, white 50%, transparent 0)"]
+      }
     },
   },
   plugins: [],
