@@ -1,4 +1,5 @@
 export default function Card(props: {
+  id: number;
   title: string;
   backdrop: string;
   overview: string;
@@ -34,7 +35,13 @@ export default function Card(props: {
             </div>
             <h3 class="ml-4">{props.rd.slice(0, 4)}</h3>
           </div>
-          <p class="w-full">{props.overview}</p>
+          <p class="mb-4 w-full">{props.overview}</p>
+          <a
+            class="rounded-md border border-white p-2 transition-all hover:bg-white hover:text-black"
+            href={`/movie/${props.id}`}
+          >
+            See more
+          </a>
         </div>
       </div>
       <div class="absolute right-0 z-0 h-full w-9/12">

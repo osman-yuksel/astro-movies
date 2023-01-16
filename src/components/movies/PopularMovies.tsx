@@ -22,7 +22,12 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
   };
 
   return (
-    <div class="swipper-wrapper relative">
+    <div
+      class="swipper-wrapper relative"
+      onMouseEnter={() => {
+        swiperRef.autoplay.start();
+      }}
+    >
       <Swiper
         modules={[Autoplay]}
         spaceBetween={0}
@@ -39,6 +44,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
           {(movie, i) => (
             <SwiperSlide>
               <Card
+                id={movie.id}
                 title={movie.title}
                 backdrop={movie.backdrop_path}
                 overview={movie.overview}
