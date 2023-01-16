@@ -1,4 +1,5 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import type { MovieDetails } from "../../movie";
 
 const { id } = Astro.params;
@@ -11,4 +12,11 @@ const response = await fetch(
 const data = (await response.json()) as MovieDetails;
 ---
 
-<h1>{data.id}</h1>
+<Layout title="Welcome to Astro.">
+  <main class="text-white">
+    <h1>{data.id}</h1>
+    <h1>{data.title}</h1>
+    <h1>{data.popularity}</h1>
+    <h1>{data.revenue}</h1>
+  </main>
+</Layout>
