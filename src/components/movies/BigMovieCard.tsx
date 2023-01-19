@@ -36,7 +36,7 @@ export default function Card(props: {
             <h3 class="ml-4">{props.rd.slice(0, 4)}</h3>
           </div>
           <p class="mb-4 w-full">{props.overview}</p>
-          <div class="group flex w-24 justify-center rounded-md border border-white bg-wtbradiant bg-[length:200%_100%] bg-right transition-all hover:bg-left hover:text-black">
+          <div class="group flex w-24 justify-center rounded-md border border-white bg-wtbgradiant bg-[length:200%_100%] bg-right transition-all hover:bg-left hover:text-black">
             <a class="m-1 block p-1 transition-all" href={`/movie/${props.id}`}>
               See more
             </a>
