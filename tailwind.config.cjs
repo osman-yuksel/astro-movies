@@ -13,7 +13,7 @@ module.exports = {
         ],
       },
       animation: {
-        hbg: "gradient 15s ease infinite",
+        hbg: "gradient 60s ease infinite",
       },
       keyframes: {
         gradient: {
