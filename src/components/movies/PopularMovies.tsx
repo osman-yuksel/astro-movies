@@ -1,9 +1,9 @@
-import { For, createSignal } from "solid-js";
+import { For, createSignal, lazy } from "solid-js";
 import Card from "./BigMovieCard";
 import type { ResultPM } from "../../movie";
 
 import { Swiper, SwiperSlide } from "swiper/solid";
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Pagination, Lazy } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -29,8 +29,10 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
         }}
       >
         <Swiper
-          modules={[Autoplay, Pagination]}
+          modules={[Autoplay, Pagination, Lazy]}
           pagination={{ clickable: true }}
+          preloadImages={false}
+          lazy={{ enabled: true, loadPrevNext: true }}
           spaceBetween={0}
           slidesPerView={1}
           loop={true}

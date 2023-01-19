@@ -47,18 +47,20 @@ export default function Card(props: {
         <div class="absolute h-full w-full bg-gradient-to-r from-black via-black/40 to-black/0" />
         <picture class="flex h-full justify-end">
           <source
-            srcset={`https://image.tmdb.org/t/p/w1280/${props.backdrop}`}
+            data-srcset={`https://image.tmdb.org/t/p/w1280/${props.backdrop}`}
             media="(min-width: 780px)"
           />
           <source
-            srcset={`https://image.tmdb.org/t/p/w780/${props.backdrop}`}
+            data-srcset={`https://image.tmdb.org/t/p/w780/${props.backdrop}`}
             media="(min-width: 300px)"
           />
           <img
             alt={props.title}
             style="min-height: 100%; min-width: 100%; object-fit: cover;"
-            src={`https://image.tmdb.org/t/p/w300/${props.backdrop}`}
+            data-src={`https://image.tmdb.org/t/p/w300/${props.backdrop}`}
+            class="swiper-lazy"
           />
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </picture>
       </div>
     </div>
