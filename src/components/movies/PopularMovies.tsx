@@ -3,10 +3,9 @@ import Card from "./BigMovieCard";
 import type { ResultPM } from "../../movie";
 
 import { Swiper, SwiperSlide } from "swiper/solid";
-import { Autoplay } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 export default function PopularMovies(props: { results: ResultPM[] }) {
   let swiperRef: any;
@@ -30,7 +29,8 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
         }}
       >
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay, Pagination]}
+          pagination={{ clickable: true }}
           spaceBetween={0}
           slidesPerView={1}
           loop={true}
