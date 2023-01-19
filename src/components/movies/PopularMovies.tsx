@@ -11,10 +11,10 @@ import "swiper/css/navigation";
 export default function PopularMovies(props: { results: ResultPM[] }) {
   let swiperRef: any;
 
-  const delay = 10000;
+  const delay = 20000;
   const [progress, setProgress] = createSignal(false);
 
-  const twclass = () => (progress() ? `w-full duration-[10000ms]` : `w-0`);
+  const twclass = () => (progress() ? `w-full duration-[20000ms]` : `w-0`);
 
   const ProgressHandler = () => {
     setProgress(false);
@@ -22,40 +22,44 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
   };
 
   return (
-    <div
-      class="swipper-wrapper relative"
-      onMouseEnter={() => {
-        swiperRef.autoplay.start();
-      }}
-    >
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={0}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: delay, disableOnInteraction: false }}
-        onSlideChange={() => {
-          console.log("slide change");
-          ProgressHandler();
+    <div class="w-5/6 overflow-hidden rounded-md">
+      <div
+        class="swipper-wrapper relative"
+        onMouseEnter={() => {
+          swiperRef.autoplay.start();
         }}
-        onSwiper={(swiper) => (swiperRef = swiper)}
       >
-        <For each={props.results}>
-          {(movie, i) => (
-            <SwiperSlide>
-              <Card
-                id={movie.id}
-                title={movie.title}
-                backdrop={movie.backdrop_path}
-                overview={movie.overview}
-                rd={movie.release_date}
-                rating={movie.vote_average}
-              />
-            </SwiperSlide>
-          )}
-        </For>
-      </Swiper>
-      <div class={`absolute h-1 bg-orange-800 ease-linear ${twclass()}`}></div>
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={0}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: delay, disableOnInteraction: false }}
+          onSlideChange={() => {
+            console.log("slide change");
+            ProgressHandler();
+          }}
+          onSwiper={(swiper) => (swiperRef = swiper)}
+        >
+          <For each={props.results}>
+            {(movie, i) => (
+              <SwiperSlide>
+                <Card
+                  id={movie.id}
+                  title={movie.title}
+                  backdrop={movie.backdrop_path}
+                  overview={movie.overview}
+                  rd={movie.release_date}
+                  rating={movie.vote_average}
+                />
+              </SwiperSlide>
+            )}
+          </For>
+        </Swiper>
+        <div
+          class={`absolute bottom-0 z-10 h-1 bg-orange-800 ease-linear ${twclass()}`}
+        ></div>
+      </div>
     </div>
   );
 }

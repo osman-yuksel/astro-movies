@@ -11,4 +11,12 @@ const response = await fetch(
 const data = (await response.json()) as PM;
 ---
 
-<PopularMovies results={data.results} client:only />
+<section class="flex flex-col items-center">
+  <div class="relative flex w-5/6 justify-center">
+    <div class="absolute bottom-10 h-1 w-full rounded-md bg-white"></div>
+    <h1 class="z-10 my-6 bg-black px-4 text-center text-4xl text-white">
+      Popular Movies
+    </h1>
+  </div>
+  <PopularMovies results={data.results} client:only />
+</section>
