@@ -12,7 +12,35 @@ const data = (await response.json()) as NP;
 ---
 
 <section class="mt-16 flex flex-col items-center">
-  <h1 class="text-4xl text-white">Now Playing</h1>
+  <div class="group relative flex w-5/6 cursor-pointer items-center">
+    <h1 class="z-10 my-6 bg-black px-4 text-center text-4xl text-white">
+      Now Playing
+    </h1>
+    <div
+      class="flex scale-110 flex-col justify-center pt-2 transition-all group-hover:pl-4"
+    >
+      <div
+        class="bottom-9 left-11 h-1 w-4 rotate-45 animate-hbgslow rounded-md bg-hbgrradiant bg-[length:2000%_2000%]"
+      >
+      </div>
+      <div
+        class="bottom-9 left-11 mt-1 h-1 w-4 -rotate-45 animate-hbgfast rounded-md bg-hbgrradiant bg-[length:2000%_2000%]"
+      >
+      </div>
+    </div>
+    <div
+      class="flex flex-col justify-center pt-2 opacity-0 transition-all group-hover:pl-4 group-hover:opacity-60"
+    >
+      <div
+        class="bottom-9 left-11 h-1 w-4 rotate-45 animate-hbgslow rounded-md bg-hbgrradiant bg-[length:2000%_2000%]"
+      >
+      </div>
+      <div
+        class="bottom-9 left-11 mt-1 h-1 w-4 -rotate-45 animate-hbgfast rounded-md bg-hbgrradiant bg-[length:2000%_2000%]"
+      >
+      </div>
+    </div>
+  </div>
   <div class="relative flex w-5/6 justify-center">
     <NowPlaying results={data.results} />
   </div>
