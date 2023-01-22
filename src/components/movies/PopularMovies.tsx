@@ -21,7 +21,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
   };
 
   return (
-    <div class="w-5/6 overflow-hidden rounded-md">
+    <div class="w-5/6 overflow-hidden rounded-md border-2 border-gray-900">
       <div
         class="swipper-wrapper relative"
         onMouseEnter={() => {
@@ -59,7 +59,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
           </For>
         </Swiper>
         <div
-          class={`absolute bottom-0 z-10 h-1 bg-orange-800 ease-linear ${twclass()}`}
+          class={`absolute bottom-1 z-10 h-1 bg-orange-800 ease-linear ${twclass()}`}
         ></div>
       </div>
     </div>
