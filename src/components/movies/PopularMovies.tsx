@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 export default function PopularMovies(props: { results: ResultPM[] }) {
   let swiperRef: any;
 
-  const delay = 20000;
+  const delay = 2000000;
   const [progress, setProgress] = createSignal(false);
 
   const twclass = () => (progress() ? `w-full duration-[20000ms]` : `w-0`);
@@ -21,7 +21,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
   };
 
   return (
-    <div class="w-5/6 overflow-hidden rounded-md border-2 border-gray-900">
+    <div class="w-11/12 overflow-hidden rounded-md border-2 border-gray-900 sm:w-5/6">
       <div
         class="swipper-wrapper relative"
         onMouseEnter={() => {
@@ -59,7 +59,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
           </For>
         </Swiper>
         <div
-          class={`absolute bottom-1 z-10 h-1 bg-orange-800 ease-linear ${twclass()}`}
+          class={`absolute bottom-0 z-10 h-1 bg-orange-800 ease-linear sm:bottom-1 ${twclass()}`}
         ></div>
       </div>
     </div>
