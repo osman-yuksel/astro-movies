@@ -8,7 +8,7 @@ export default function Card(props: {
 }) {
   return (
     <div class="relative flex h-[28rem] w-full items-center text-white sm:h-[45rem]">
-      <div class="z-10 ml-4 mb-20 flex h-full w-full items-end sm:ml-14 sm:mb-0 sm:w-4/12 sm:items-center">
+      <div class="z-10 ml-4 mb-24 flex h-full w-full items-end sm:ml-14 sm:mb-0 sm:w-4/12 sm:items-center">
         <div>
           <h1 class="mb-4 w-full text-3xl sm:text-5xl">{props.title}</h1>
           <div class="mb-4 flex h-12 flex-row items-center text-xl">

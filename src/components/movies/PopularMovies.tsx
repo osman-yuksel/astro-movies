@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 export default function PopularMovies(props: { results: ResultPM[] }) {
   let swiperRef: any;
 
-  const delay = 2000000;
+  const delay = 20000;
   const [progress, setProgress] = createSignal(false);
 
   const twclass = () => (progress() ? `w-full duration-[20000ms]` : `w-0`);
