@@ -59,7 +59,7 @@ export default function PopularMovies(props: { results: ResultPM[] }) {
           </For>
         </Swiper>
         <div
-          class={`absolute bottom-0 z-10 h-1 bg-orange-800 ease-linear sm:bottom-1 ${twclass()}`}
+          class={`absolute -bottom-1 z-10 h-1 bg-orange-800 ease-linear sm:bottom-0 ${twclass()}`}
         ></div>
       </div>
     </div>
