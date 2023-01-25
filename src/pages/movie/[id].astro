@@ -10,13 +10,108 @@ const response = await fetch(
   }`
 );
 const data = (await response.json()) as MovieDetails;
+
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="text-white">
-    <h1>{data.id}</h1>
-    <h1>{data.title}</h1>
-    <h1>{data.popularity}</h1>
-    <h1>{data.revenue}</h1>
+  <main class="relative text-white">
+    <div class="relative">
+      <picture>
+        <source
+          srcset={`https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`}
+          media="(min-width: 780px)"
+        />
+        <source
+          srcset={`https://image.tmdb.org/t/p/w780/${data.backdrop_path}`}
+          media="(min-width: 300px)"
+        />
+        <img
+          alt={data.title}
+          style="min-height: 100%; min-width: 100%; object-fit: cover;"
+          src={`https://image.tmdb.org/t/p/w300/${data.backdrop_path}`}
+        />
+      </picture>
+      <div
+        class="absolute bottom-0 z-10 h-full w-full bg-gradient-to-t from-black via-black/40 to-black/0"
+      >
+      </div>
+    </div>
+    <div class="relative top-1/3 z-10 mt-2 flex md:absolute lg:max-w-7xl lg:top-[15%]">
+      <div class="mx-10 hidden w-1/3 overflow-hidden rounded-md md:block max-h-[50vh]">
+        <img
+          alt={data.poster_path}
+          loading="eager"
+          src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
+          style="height: 100%; width: 100%; object-fit: contain; object-position: top right;"
+        />
+      </div>
+      <div class="rounded-md bg-black/30 md:w-1/2">
+        <h1 class="mx-2 text-center text-2xl">{data.title}</h1>
+        <div class="my-2 mx-2 flex items-center justify-around">
+          <div class="relative flex h-12 w-12 items-center justify-center">
+            <h3 class="absolute">{Number(data.vote_average.toFixed(1))}</h3>
+            <svg class="transition-all" viewBox="0 0 36 36">
+              <path
+                d="M18 2.0845 
+                  a 15.9155 15.9155 0 0 1 0 31.831 
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke={data.vote_average > 7
+                  ? "#39fc03"
+                  : data.vote_average > 4
+                  ? "#9a3412"
+                  : "#fc0303"}
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-dasharray={`${data.vote_average * 10}, 100`}></path>
+            </svg>
+          </div>
+          <div class="h-6 w-[.1rem] bg-neutral-700"></div>
+          <p class="text-lg">
+            {data.runtime} min
+          </p>
+          <div class="h-6 w-[.1rem] bg-neutral-700"></div>
+          <p class="text-lg">
+            {data.release_date.split("-").reverse().join(" ")}
+          </p>
+        </div>
+        <p class="mx-4 mb-2">{data.overview}</p>
+        <div class="mx-4 border-b border-white/30 pb-4">
+          <p>Budget - {formatter.format(data.budget)}</p>
+          <p>Revenue - {formatter.format(data.revenue)}</p>
+        </div>
+        <div
+          class="my-4 mx-4 flex flex-wrap justify-center rounded-md bg-gray-400"
+        >
+          {
+            data.production_companies.map((item, i) => {
+              return (
+                <div class="h-24 w-full max-w-sm border-b border-black p-2 text-center text-black">
+                  <picture>
+                    <source
+                      srcset={`https://image.tmdb.org/t/p/w1280${item.logo_path}`}
+                      media="(min-width: 780px)"
+                    />
+                    <source
+                      srcset={`https://image.tmdb.org/t/p/w780${item.logo_path}`}
+                      media="(min-width: 300px)"
+                    />
+                    <img
+                      alt={item.name}
+                      style="height: 100%; width: 100%; object-fit: contain;"
+                      src={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
+                    />
+                  </picture>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>
